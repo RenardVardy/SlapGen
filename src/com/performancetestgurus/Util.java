@@ -27,7 +27,7 @@ import org.jnbis.WSQEncoder;
  * @author <a href="mailto:renard.vardy@performancetestgurus.com">Renard Vardy</a>
  * @version 0.1
  * @date April 25, 2019
- * Copyright (C) 2018 Renard Vardy, www.performancetestgururus.com/copyright
+ * Copyright (C) 2019 Renard Vardy, www.performancetestgururus.com/copyright
  * 
 **/
 public class Util {
@@ -38,7 +38,7 @@ public class Util {
 	   * 
 	   */
 	
-	public static void showImage(BufferedImage image) {
+	protected static void showImage(BufferedImage image) {
 		JFrame frame = new JFrame("Image " + image.getWidth() + " x " + image.getHeight());
 		Container contentPane = frame.getContentPane();
 		JPanel imgPanel = new JPanel(new BorderLayout());
@@ -56,7 +56,7 @@ public class Util {
 	   * 
 	   */
 	
-	public static BufferedImage convert(Bitmap bitmap) {
+	protected static BufferedImage convert(Bitmap bitmap) {
 		int width = bitmap.getWidth();
 		int height = bitmap.getHeight();
 		byte[] data = bitmap.getPixels();
@@ -77,7 +77,7 @@ public class Util {
 	   * 
 	   */
 	
-	public static byte[] convert(BufferedImage image) {
+	protected static byte[] convert(BufferedImage image) {
 		System.out.println(image.getColorModel());
         WritableRaster raster = image.getRaster();
         DataBufferByte buffer = (DataBufferByte) raster.getDataBuffer();
