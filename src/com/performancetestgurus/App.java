@@ -35,7 +35,7 @@ import javax.swing.JTextField;
  * @author <a href="mailto:renard.vardy@performancetestgurus.com">Renard Vardy</a>
  * @version 0.1
  * @date April 25, 2019
- * Copyright (C) 2018 Renard Vardy, www.performancetestgururus.com/copyright
+ * Copyright (C) 2019 Renard Vardy, www.performancetestgururus.com/copyright
  * 
 **/
 
