@@ -101,7 +101,7 @@ public class App implements ActionListener
 	    JLabel fingerLabel13 = new JLabel("Finger13 - Right Slap");
 	    JLabel fingerLabel14 = new JLabel("Finger14 - Left Slap");
 	    JLabel fingerLabel15 = new JLabel("Finger15 - Thumb Slap");
-	    JLabel fingerHeading = new JLabel("***** Input Finger Prints *****");
+	    JLabel fingerHeading = new JLabel("***** Input Fingerprints *****");
 	    JLabel slapsHeading = new JLabel("***** Output Slaps *****");
 	    
 	    JPanel fingerPanel01 = new JPanel();

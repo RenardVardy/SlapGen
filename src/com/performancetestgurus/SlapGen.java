@@ -53,10 +53,10 @@ public class SlapGen {
 		g.setBackground(Color.WHITE);
 		g.clearRect(0, 0, target.getWidth(), target.getHeight());
 
-		placeFingerOnImage(g, finger2, 70, 617);
-		placeFingerOnImage(g, finger3, 452, 339);
-		placeFingerOnImage(g, finger4, 870, 409);
-		placeFingerOnImage(g, finger5, 1287, 861);
+		placeFingerOnImage(g, finger2, 64, 608);
+		placeFingerOnImage(g, finger3, 448, 352);
+		placeFingerOnImage(g, finger4, 864, 416);
+		placeFingerOnImage(g, finger5, 1280, 864);
 		
 		//Util.showImage(target);  //I used this to view the generated slaps during development
 		return Util.convert(target);
@@ -87,10 +87,10 @@ public class SlapGen {
 		g.setBackground(Color.WHITE);
 		g.clearRect(0, 0, target.getWidth(), target.getHeight());
 		
-		placeFingerOnImage(g, finger7,1287, 617);
-		placeFingerOnImage(g, finger8,870, 339);
-		placeFingerOnImage(g, finger9,452, 409);
-		placeFingerOnImage(g, finger10,70, 861);
+		placeFingerOnImage(g, finger7,1280, 608);
+		placeFingerOnImage(g, finger8,864, 352);
+		placeFingerOnImage(g, finger9,448, 416);
+		placeFingerOnImage(g, finger10,64, 864);
 
 		//Util.showImage(target);  //I used this to view the generated slaps during development
 		return Util.convert(target);
@@ -118,23 +118,44 @@ public class SlapGen {
 		g.setBackground(Color.WHITE);
 		g.clearRect(0, 0, target.getWidth(), target.getHeight());
 
-		placeFingerOnImage(g, finger6, 400, 400);
-		placeFingerOnImage(g, finger1, 940, 400);
+		placeFingerOnImage(g, finger6, 384, 384);
+		placeFingerOnImage(g, finger1, 928, 384);
 		
 		//Util.showImage(target);  //I used this to view the generated slaps during development
 		return Util.convert(target);
+	}	
+
+	   /**
+	   * reEncodeFinger - re-encodes a figner - this is to add WSQ compression artifacts to the fingerprint
+	   * 
+	   * 
+	   * @param byte[] finger - Finger to be encoded 
+	   * @return byte[] encoded wsq as a byte array - note this finger should very closely match the 
+	   * 				generated slaps
+	   * 
+	   **/
+	public static byte[] reEncodeFinger(byte[] finger) {
+		BufferedImage image = null;
+		try {
+			image = Util.convert(WSQDecoder.decode(new ByteArrayInputStream(finger)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return  Util.convert(image);
+		
 	}	
 	
 	private static void placeFingerOnImage(Graphics2D g, byte [] finger, int x, int y) {
 		if(finger != null) {
 		try {
 			BufferedImage image = Util.convert(WSQDecoder.decode(new ByteArrayInputStream(finger)));
-			g.drawImage(cropFinger(image, 330, 440), x, y, null);	//I have set the maximum finger size to 330x440
+			g.drawImage(cropFinger(image, 320, 448), x, y, null);	//I have set the maximum finger size to 330x440
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
+	
 	
 	private static BufferedImage cropFinger(BufferedImage finger, int x, int y) {
  		return finger.getSubimage(finger.getWidth() > x ? finger.getWidth()/2 - x/2 : 0 , 
