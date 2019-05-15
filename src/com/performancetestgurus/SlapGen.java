@@ -56,7 +56,7 @@ public class SlapGen {
 		placeFingerOnImage(g, finger2, 64, 608);
 		placeFingerOnImage(g, finger3, 448, 352);
 		placeFingerOnImage(g, finger4, 864, 416);
-		placeFingerOnImage(g, finger5, 1280, 864);
+		placeFingerOnImage(g, finger5, 1248, 864);
 		
 		//Util.showImage(target);  //I used this to view the generated slaps during development
 		return Util.convert(target);
@@ -87,9 +87,9 @@ public class SlapGen {
 		g.setBackground(Color.WHITE);
 		g.clearRect(0, 0, target.getWidth(), target.getHeight());
 		
-		placeFingerOnImage(g, finger7,1280, 608);
-		placeFingerOnImage(g, finger8,864, 352);
-		placeFingerOnImage(g, finger9,448, 416);
+		placeFingerOnImage(g, finger7,1248, 608);
+		placeFingerOnImage(g, finger8,832, 352);
+		placeFingerOnImage(g, finger9,416, 416);
 		placeFingerOnImage(g, finger10,64, 864);
 
 		//Util.showImage(target);  //I used this to view the generated slaps during development
