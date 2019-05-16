@@ -1,6 +1,6 @@
 package com.performancetestgurus;
 
-import java.io.ByteArrayOutputStream;
+//import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import java.awt.BorderLayout;
@@ -15,7 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.jnbis.Bitmap;
-import org.jnbis.WSQEncoder;
+//import org.jnbis.WSQEncoder;
+
+import cz.muni.fi.lazon.wsq.Encoder;
 
 /**
  * A bunch of utilities to support creation of slaps  
@@ -78,21 +80,24 @@ public class Util {
 	   */
 	
 	protected static byte[] convert(BufferedImage image) {
+		byte[] returnBytes = null;
 		System.out.println(image.getColorModel());
         WritableRaster raster = image.getRaster();
         DataBufferByte buffer = (DataBufferByte) raster.getDataBuffer();
         byte[] databuffer = buffer.getData();
-        Bitmap bitmap = new   Bitmap(databuffer, image.getWidth(),  image.getHeight(), 500, 8, 1); 
+        //Bitmap bitmap = new   Bitmap(databuffer, image.getWidth(),  image.getHeight(), 500, 8, 1); 
         
-        System.out.println(bitmap.toString());
-        ByteArrayOutputStream byteBuffer2 = new ByteArrayOutputStream();
+        Encoder encoder = new Encoder.Builder(image.getWidth(), image.getHeight()).build();
+        
+        //ByteArrayOutputStream byteBuffer2 = new ByteArrayOutputStream();
         try {
-			WSQEncoder.encode(byteBuffer2, bitmap, 0.75f, "");
-		} catch (IOException e) {
+			//WSQEncoder.encode(byteBuffer2, bitmap, 2.25f, "");
+        	returnBytes = encoder.encode(databuffer);
+        	} catch (IOException e) {
 			e.printStackTrace();
 		}
      
-        return byteBuffer2.toByteArray();
-        
+       // return byteBuffer2.toByteArray();
+        return returnBytes;
 	}	
 }
